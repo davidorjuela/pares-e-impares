@@ -1,7 +1,17 @@
 require 'sinatra'
 
+num=0
+
+
 get '/' do
+        @num = num
 	erb :index
+end
+
+post '/sumar' do
+        num += 1
+	@num = num
+        erb :index
 end
 
 __END__
@@ -14,13 +24,10 @@ __END__
   <title>Pares e impares</title>
 </head>
 <body>
-  <% for i in(1..50) %>
-	    <% if i % 2 === 0 %>
-		<%= "<h1>" + i.to_s + " Soy Par!</h1>" %>
-            <% else %>
-		<%= "<h1>" + i.to_s + " Soy Impar!</h1>" %>
-	    <% end %>
-	<% end %>
+  <h1>Mi cuenta es:<%= @num %></h1>
+  <form action="/sumar" method="post">
+    <button type="submit">Sumar</button>
+  </form>
 </body>
 </html>
 
