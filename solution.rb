@@ -26,7 +26,7 @@ __END__
 <body>
   <h1>Mi cuenta es:<%= @num %></h1>
   <form action="/sumar" method="post">
-    <button type="submit">Sumar</button>
+    <input type="submit" value"Sumar">
   </form>
 </body>
 </html>
